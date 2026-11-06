@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
 )
 
 type Server struct {
@@ -51,8 +52,10 @@ func main() {
 
 	log.Printf("Starting server on port 8080...")
 
+	logg := log.New(os.Stdout, "http: ", log.Ldate)
+
 	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
-		log.Fatalf("Server cannot be started %v", err)
+		logg.Fatalf("Server cannot be started %v", err)
 	}
 }
