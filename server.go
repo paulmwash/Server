@@ -51,11 +51,11 @@ func main() {
 		log.Fatalf("Error %v", err)
 	}
 
-	pt, er := os.Create("records.json")
+	/*pt, er := os.Create("records.json")
 	if er != nil {
 		log.Fatalf("Error creating file %v", er)
 	}
-	defer pt.Close()
+	defer pt.Close()*/
 
 	rr := os.WriteFile("records.json", data, 0o0644)
 	if rr != nil {
