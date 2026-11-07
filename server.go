@@ -46,6 +46,22 @@ func main() {
 		Source:  "Kenya",
 	}
 
+	data, err := json.Marshal(dest)
+	if err != nil {
+		log.Fatalf("Error %v", err)
+	}
+
+	pt, er := os.Create("records.json")
+	if er != nil {
+		log.Fatalf("Error creating file %v", er)
+	}
+	defer pt.Close()
+
+	rr := os.WriteFile("records.json", data, 0o644)
+	if rr != nil {
+		log.Fatalf("Error writing to file %v", rr)
+	}
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", procure.Test)
 	mux.HandleFunc("/nest", dest.Router)
@@ -54,8 +70,8 @@ func main() {
 
 	logg := log.New(os.Stdout, "http: ", log.Ldate)
 
-	err := http.ListenAndServe(":8080", mux)
-	if err != nil {
-		logg.Fatalf("Server cannot be started %v", err)
+	ee := http.ListenAndServe(":8080", mux)
+	if ee != nil {
+		logg.Fatalf("Server cannot be started %v", ee)
 	}
 }
