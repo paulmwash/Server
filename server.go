@@ -57,7 +57,7 @@ func main() {
 	}
 	defer pt.Close()
 
-	rr := os.WriteFile("records.json", data, 0o644)
+	rr := os.WriteFile("records.json", data, 0o0644)
 	if rr != nil {
 		log.Fatalf("Error writing to file %v", rr)
 	}
