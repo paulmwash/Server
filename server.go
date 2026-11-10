@@ -35,7 +35,7 @@ func main() {
 	signal.Notify(interrupt, os.Interrupt)
 
 	http.HandleFunc("/ws", wsHandler)
-	log.Printf("Starting server at port 8080")
+	log.Printf("Starting server at port 5000")
 	err := http.ListenAndServe(":5000", nil)
 	if err != nil {
 		log.Fatalf("error %v", err)
