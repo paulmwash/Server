@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
 
 	"github.com/gorilla/websocket"
 )
@@ -28,6 +30,10 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	interrupt := make(chan os.Signal, 1)
+
+	signal.Notify(interrupt, os.Interrupt)
+
 	http.HandleFunc("/ws", wsHandler)
 	log.Printf("Starting server at port 8080")
 	err := http.ListenAndServe(":8080", nil)
