@@ -29,5 +29,6 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 			log.Println("Error %v", err)
 			break
 		}
+		log.Println("Received : %s",message)
 	}
 }
