@@ -14,3 +14,11 @@ var upgrader = websocket.Upgrader{
 		return r.Header.Get("Origin") == "http://localhost:8090"
 	}
 }
+
+func webHandler(w http.ResponseWriter, r *http.Request) {
+	conn,err := upgrader.Upgrade(w,r,nil)
+	if err != nil {
+		log.Println("Error occurred %v", err)
+		return 
+	}
+}
