@@ -27,6 +27,7 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 		messageType,message,err := conn.ReadMessage()
 		if err != nil {
 			log.Println("Error %v", err)
+			break
 		}
 	}
 }
