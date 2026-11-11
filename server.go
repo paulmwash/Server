@@ -37,5 +37,5 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/ws", nil)
+	http.HandleFunc("/ws", webHandler)
 }
