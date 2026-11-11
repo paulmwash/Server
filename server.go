@@ -37,3 +37,7 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+
+func main() {
+	
+}
