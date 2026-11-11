@@ -38,4 +38,5 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/ws", webHandler)
+	log.Println("Server running now ...")
 }
