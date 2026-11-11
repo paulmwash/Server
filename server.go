@@ -33,7 +33,7 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 		err = conn.WriteMessage(messageType,message)
 		if err != nil {
 			log.Println("Error can't write the message")
-			
+			break
 		}
 	}
 }
