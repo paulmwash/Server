@@ -21,4 +21,5 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 		log.Println("Error occurred %v", err)
 		return 
 	}
+	defer conn.Close()
 }
