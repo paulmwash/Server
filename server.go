@@ -30,5 +30,6 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 		log.Println("Received : %s",string(message))
+		err = conn.WriteMessage(messageType,message)
 	}
 }
