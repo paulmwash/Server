@@ -39,4 +39,8 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/ws", webHandler)
 	log.Println("Server running now ...")
+	ra := http.ListenAndServe(":8090", nil)
+	if ra != nil {
+		log.Printf("Error caused breakdown %v", ra)
+	}
 }
