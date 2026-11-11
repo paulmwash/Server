@@ -22,4 +22,8 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 		return 
 	}
 	defer conn.Close()
+
+	for {
+		messageType,message,err := conn.ReadMessage()
+	}
 }
