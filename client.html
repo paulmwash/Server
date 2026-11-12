@@ -9,10 +9,11 @@
 function connect () {
     const socket = new websocket("ws://localhost:8090/ws");
 
-    socket.oneopen = () => {
+    socket.onopen = () => {
         console.log("Connected");
-        socket.send("Hello from browser")
-    }
+        socket.send("Hello from browser");
+    };
+    socket.
 }
         </script>
     </body>
