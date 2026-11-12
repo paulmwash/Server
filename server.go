@@ -16,7 +16,7 @@ var upgrader = websocket.Upgrader{
 func webHandler(w http.ResponseWriter, r *http.Request) {
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		log.Printf("Error occurred %v", err)
+		log.Printf("You're not using a websocket %v", err)
 		return
 	}
 	defer conn.Close()
