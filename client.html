@@ -13,7 +13,12 @@ function connect () {
         console.log("Connected");
         socket.send("Hello from browser");
     };
-    socket.
+    socket.onmessage = (event) => {
+        console.log("SERVER:",event.data);
+    };
+    socket.onerror = (event) => {
+        
+    }
 }
         </script>
     </body>
