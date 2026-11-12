@@ -7,7 +7,7 @@
     <body>
         <script type="text/javascript">
 function connect () {
-    const socket = new websocket("ws://localhost:8090/ws");
+    const socket = new WebSocket("ws://localhost:8090/ws");
 
     socket.onopen = () => {
         console.log("Connected");
