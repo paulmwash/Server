@@ -57,6 +57,7 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	OpenDB()
 	http.HandleFunc("/ws", webHandler)
 	log.Println("Server running now ...")
 	ra := http.ListenAndServe(":8090", nil)
