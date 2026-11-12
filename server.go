@@ -57,6 +57,9 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	http.HandleFunc("/client", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "/home/paul-njoroge/Fetch/cmd/api/client.html")
+	})
 	OpenDB()
 	http.HandleFunc("/ws", webHandler)
 	log.Println("Server running now ...")
