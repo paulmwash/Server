@@ -7,8 +7,12 @@
     <body>
         <script type="js">
 function connect () {
-    const socket = new websocket("ws://localhost:8090/ws")
-    
+    const socket = new websocket("ws://localhost:8090/ws");
+
+    socket.oneopen = () => {
+        console.log("Connected");
+        socket.send("Hello from browser")
+    }
 }
         </script>
     </body>
