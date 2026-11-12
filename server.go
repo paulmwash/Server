@@ -9,7 +9,7 @@ import (
 
 var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
-		return r.Header.Get("Origin") == "http://localhost:8090"
+		return true //r.Header.Get("Origin") == "http://localhost:8090"
 	},
 }
 
