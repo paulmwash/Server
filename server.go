@@ -8,6 +8,13 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+func openDB() (*sql.DB, error) {
+	db, er := sql.Open("sqlite3", "./chat.db")
+	if er != nil {
+		log.Printf("Database open error %v", er)
+	}
+}
+
 var upgrader = websocket.Upgrader{
 	CheckOrigin: func(r *http.Request) bool {
 		return true //r.Header.Get("Origin") == "http://localhost:8090"
