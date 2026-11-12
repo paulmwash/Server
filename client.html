@@ -17,8 +17,8 @@ function connect () {
         console.log("SERVER:",event.data);
     };
     socket.onerror = (event) => {
-        
-    }
+        console.log("Error",event);
+    };
 }
         </script>
     </body>
