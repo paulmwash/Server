@@ -6,12 +6,21 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
+	_ "github.com/mattn/go-sqlite3"
+
 )
 
+// open or create sl database
 func openDB() (*sql.DB, error) {
 	db, er := sql.Open("sqlite3", "./chat.db")
 	if er != nil {
-		log.Printf("Database open error %v", er)
+		return nil, er
+	}
+
+	// check if database is accessible
+	er = db.Ping(); er != nil{
+		db.Close()
+		return nil,er
 	}
 }
 
