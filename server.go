@@ -7,7 +7,6 @@ import (
 
 	"github.com/gorilla/websocket"
 	_ "github.com/mattn/go-sqlite3"
-
 )
 
 // open or create sl database
@@ -18,9 +17,9 @@ func openDB() (*sql.DB, error) {
 	}
 
 	// check if database is accessible
-	er = db.Ping(); er != nil{
+	if er := db.Ping(); er != nil {
 		db.Close()
-		return nil,er
+		return nil, er
 	}
 }
 
