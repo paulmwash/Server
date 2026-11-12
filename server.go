@@ -9,8 +9,8 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-// open or create sl database
-func openDB() (*sql.DB, error) {
+// open or create sql database
+func OpenDB() (*sql.DB, error) {
 	db, er := sql.Open("sqlite3", "./chat.db")
 	if er != nil {
 		return nil, er
@@ -21,6 +21,10 @@ func openDB() (*sql.DB, error) {
 		db.Close()
 		return nil, er
 	}
+
+	log.Println("SQLite database connected successfully")
+
+	return db, nil
 }
 
 var upgrader = websocket.Upgrader{
