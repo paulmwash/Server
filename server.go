@@ -58,7 +58,7 @@ func webHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/client", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, "/home/paul-njoroge/Fetch/cmd/api/chat.db")
+		http.ServeFile(w, r, "/home/paul-njoroge/Videos/tips.mp4")
 	})
 	OpenDB()
 	http.HandleFunc("/ws", webHandler)
